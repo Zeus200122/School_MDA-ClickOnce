@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AXON | Soluciones Tecnológicas</title>
+    <meta name="description" content="AXON desarrolla software moderno, plataformas web y herramientas digitales para optimizar procesos y acelerar la transformación tecnológica de tu organización.">
+
+    <link rel="icon" type="image/png" href="img/AXON Logo.png">
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -21,6 +24,12 @@
                 <img src="img/AXON Logo.png" alt="AXON">
                 <span>AXON</span>
             </div>
+
+            <button class="nav-toggle" type="button" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
             <nav>
                 <a href="#inicio">Inicio</a>
@@ -97,6 +106,12 @@
                         <li>Reportes</li>
                     </ul>
 
+                    <br>
+
+                    <a href="proyectos/school-mda.html" class="btn-primary">
+                        Conocer más
+                    </a>
+
                 </div>
 
                 <div class="card">
@@ -138,25 +153,25 @@
             <div class="feature-grid">
 
                 <div class="feature">
-                    ⚡
+                    <span class="feature-icon">⚡</span>
                     <h3>Rápido</h3>
                     <p>Procesos optimizados y eficientes.</p>
                 </div>
 
                 <div class="feature">
-                    🔒
+                    <span class="feature-icon">🔒</span>
                     <h3>Seguro</h3>
                     <p>Protección de datos y acceso controlado.</p>
                 </div>
 
                 <div class="feature">
-                    ☁️
+                    <span class="feature-icon">☁️</span>
                     <h3>En Línea</h3>
                     <p>Acceso desde cualquier lugar.</p>
                 </div>
 
                <div class="feature">
-                    🚀
+                    <span class="feature-icon">🚀</span>
                     <h3>Innovación</h3>
                     <p>Desarrollo constante de nuevas soluciones y herramientas.</p>
                 </div>
@@ -184,18 +199,16 @@
                 <p>
                     Primera versión oficial del sistema.
                 </p>
-                   <button class="btn-primary">
-                        <a href="https://zeus200122.github.io/AXON-SITE/proyectos/school-mda.html" class="btn-primary">
-                            Leer más
-                        </a>
-                    </button>
-                <br>
-                <br>
-                <button class="btn-primary">
-    <a href="https://github.com/Zeus200122/School_MDA-Releases/releases/download/v1.0.5/School_MDA_Installer_v1.0.5.exe" class="btn-primary">
-        Descargar última versión
-    </a>
-</button>
+
+                <a href="proyectos/school-mda.html" class="btn-primary">
+                    Leer más
+                </a>
+
+                <br><br>
+
+                <a href="https://github.com/Zeus200122/School_MDA-Releases/releases/download/v1.0.5/School_MDA_Installer_v1.0.5.exe" class="btn-primary">
+                    Descargar última versión
+                </a>
 
             </div>
 
@@ -213,12 +226,94 @@
 
             <p>
                 ¿Buscas una solución tecnológica para tu organización o proyecto?
-                Estamos listos para ayudarte.
+                Cuéntanos qué necesitas: información, una cotización o acceso de prueba.
             </p>
 
-            <a href="mailto:alejandro15moyamorel@gmail.com" class="btn-primary">
-                Contactar
-            </a>
+            <div class="contact-grid">
+
+                <form class="contact-form" action="https://formspree.io/f/TU_FORM_ID_AQUI" method="POST">
+
+                    <div class="form-row">
+                        <div>
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div>
+                            <label for="correo">Correo electrónico</label>
+                            <input type="email" id="correo" name="_replyto" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="telefono">Teléfono / WhatsApp</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Opcional">
+                        </div>
+                        <div>
+                            <label for="tipo_consulta">¿Qué necesitas?</label>
+                            <select id="tipo_consulta" name="tipo_consulta" required>
+                                <option value="">Seleccione...</option>
+                                <option value="Información general">Información general</option>
+                                <option value="Cotización">Cotización</option>
+                                <option value="Acceso de prueba">Acceso de prueba (demo)</option>
+                                <option value="Soporte técnico">Soporte técnico</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="producto">Producto de interés</label>
+                        <select id="producto" name="producto">
+                            <option value="">Seleccione...</option>
+                            <option value="School MDA">School MDA</option>
+                            <option value="Nuevo proyecto / a definir">Nuevo proyecto / a definir</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" required placeholder="Cuéntanos brevemente qué necesitas..."></textarea>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="Nuevo contacto desde el sitio de AXON">
+                    <input type="text" name="_gotcha" style="display:none">
+
+                    <button type="submit" class="btn-primary">Enviar mensaje</button>
+
+                    <div class="form-status"></div>
+
+                </form>
+
+                <div class="contact-info">
+
+                    <a href="mailto:alejandro15moyamorel@gmail.com" class="contact-info-card">
+                        <div class="contact-info-icon">✉️</div>
+                        <div>
+                            <h4>Correo</h4>
+                            <p>alejandro15moyamorel@gmail.com</p>
+                        </div>
+                    </a>
+
+                    <a href="https://wa.me/18498698262?text=Hola%2C%20quiero%20más%20información%20sobre%20AXON" target="_blank" rel="noopener" class="contact-info-card">
+                        <div class="contact-info-icon">💬</div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+1 (849) 869-8262</p>
+                        </div>
+                    </a>
+
+                    <a href="https://instagram.com/TU_USUARIO" target="_blank" rel="noopener" class="contact-info-card">
+                        <div class="contact-info-icon">📷</div>
+                        <div>
+                            <h4>Instagram</h4>
+                            <p>@TU_USUARIO</p>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -231,12 +326,17 @@
         <div class="container">
 
             <p>
-                © 2025 AXON - Todos los derechos reservados.
+                © 2026 AXON - Todos los derechos reservados.
             </p>
 
         </div>
 
     </footer>
+
+    <a href="https://wa.me/18498698262?text=Hola%2C%20quiero%20más%20información%20sobre%20AXON"
+       class="whatsapp-float" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+        💬
+    </a>
 
     <script src="js/app.js"></script>
 
