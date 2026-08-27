@@ -239,7 +239,7 @@
 
             <div class="contact-grid">
 
-                <form class="contact-form" action="https://formspree.io/f/TU_FORM_ID_AQUI" method="POST">
+                <form class="contact-form" action="https://formspree.io/f/mnnbqvod" method="POST">
 
                     <div class="form-row">
                         <div>
@@ -252,32 +252,39 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div>
-                            <label for="telefono">Teléfono / WhatsApp</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="Opcional">
-                        </div>
-                        <div>
-                            <label for="tipo_consulta">¿Qué necesitas?</label>
-                            <select id="tipo_consulta" name="tipo_consulta" required>
-                                <option value="">Seleccione...</option>
-                                <option value="Información general">Información general</option>
-                                <option value="Cotización">Cotización</option>
-                                <option value="Acceso de prueba">Acceso de prueba (demo)</option>
-                                <option value="Soporte técnico">Soporte técnico</option>
-                                <option value="Otro">Otro</option>
-                            </select>
-                        </div>
+                   <div class="form-row">
+                    <div>
+                        <label for="telefono">Teléfono / WhatsApp</label>
+                        <input 
+                            type="tel" 
+                            id="telefono" 
+                            name="telefono" 
+                            placeholder="Opcional">
                     </div>
 
                     <div>
-                        <label for="producto">Producto de interés</label>
-                        <select id="producto" name="producto">
+                        <label for="tipo_consulta">¿Qué necesitas?</label>
+
+                        <select id="tipo_consulta" name="tipo_consulta" required>
                             <option value="">Seleccione...</option>
-                            <option value="School MDA">School MDA</option>
-                            <option value="Nuevo proyecto / a definir">Nuevo proyecto / a definir</option>
+                            <option value="Información general">Información general</option>
+                            <option value="Cotización">Cotización</option>
+                            <option value="Acceso de prueba">Acceso de prueba (demo)</option>
+                            <option value="Soporte técnico">Soporte técnico</option>
+                            <option value="Otro">Otro</option>
                         </select>
                     </div>
+                </div>
+
+                <div>
+                    <label for="producto">Producto de interés</label>
+
+                    <select id="producto" name="producto">
+                        <option value="">Seleccione...</option>
+                        <option value="School MDA">School MDA</option>
+                        <option value="Nuevo proyecto / a definir">Nuevo proyecto</option>
+                    </select>
+                </div>
 
                     <div>
                         <label for="mensaje">Mensaje</label>

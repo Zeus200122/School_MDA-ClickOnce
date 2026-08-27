@@ -58,53 +58,127 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ============================================================
-    // ENVÍO DEL FORMULARIO DE CONTACTO (Formspree, vía fetch)
-    // ============================================================
+   // ============================================================
+// FORMULARIO DE CONTACTO
+// Formspree + parámetros desde la URL
+// ============================================================
 
-    document.querySelectorAll("form.contact-form").forEach(function (form) {
+document.querySelectorAll("form.contact-form").forEach(function (form) {
 
-        const status = form.querySelector(".form-status");
-        const submitBtn = form.querySelector('button[type="submit"]');
+    const status = form.querySelector(".form-status");
+    const submitBtn = form.querySelector('button[type="submit"]');
 
-        form.addEventListener("submit", async function (e) {
-            e.preventDefault();
+    const tipoConsulta = form.querySelector("#tipo_consulta");
+    const producto = form.querySelector("#producto");
 
-            status.className = "form-status sending show";
-            status.textContent = "Enviando tu mensaje...";
-            submitBtn.disabled = true;
 
-            try {
-                const response = await fetch(form.action, {
-                    method: "POST",
-                    body: new FormData(form),
-                    headers: { "Accept": "application/json" }
-                });
+    // ========================================================
+    // CARGAR DATOS DESDE LA URL
+    // Ejemplo:
+    // ?producto=School%20MDA&tipo=Acceso%20de%20prueba#contacto
+    // ========================================================
 
-                if (response.ok) {
-                    status.className = "form-status success show";
-                    status.textContent =
-                        "¡Mensaje enviado! Te responderemos lo antes posible.";
-                    form.reset();
-                } else {
-                    const data = await response.json().catch(function () { return null; });
+    const params = new URLSearchParams(window.location.search);
 
-                    const mensajeError =
-                        data && data.errors
-                            ? data.errors.map(function (err) { return err.message; }).join(", ")
-                            : "Ocurrió un error al enviar el mensaje. Intenta de nuevo.";
+    const productoURL = params.get("producto");
+    const tipoURL = params.get("tipo");
 
-                    status.className = "form-status error show";
-                    status.textContent = mensajeError;
+
+    // Seleccionar producto automáticamente
+    if (productoURL && producto) {
+
+        const opcionProducto = Array.from(producto.options)
+            .find(function (option) {
+                return option.value === productoURL;
+            });
+
+        if (opcionProducto) {
+            producto.value = productoURL;
+        }
+    }
+
+
+    // Seleccionar tipo de consulta automáticamente
+    if (tipoURL && tipoConsulta) {
+
+        const opcionTipo = Array.from(tipoConsulta.options)
+            .find(function (option) {
+                return option.value === tipoURL;
+            });
+
+        if (opcionTipo) {
+            tipoConsulta.value = tipoURL;
+        }
+    }
+
+
+    // ========================================================
+    // ENVÍO DEL FORMULARIO
+    // ========================================================
+
+    form.addEventListener("submit", async function (e) {
+
+        e.preventDefault();
+
+        status.className = "form-status sending show";
+        status.textContent = "Enviando tu mensaje...";
+
+        submitBtn.disabled = true;
+
+        try {
+
+            const response = await fetch(form.action, {
+                method: "POST",
+                body: new FormData(form),
+                headers: {
+                    "Accept": "application/json"
                 }
-            } catch (err) {
-                status.className = "form-status error show";
+            });
+
+
+            if (response.ok) {
+
+                status.className = "form-status success show";
+
                 status.textContent =
-                    "No se pudo conectar con el servidor. Verifica tu conexión e intenta de nuevo.";
-            } finally {
-                submitBtn.disabled = false;
+                    "¡Mensaje enviado! Te responderemos lo antes posible.";
+
+                form.reset();
+
+            } else {
+
+                const data = await response.json()
+                    .catch(function () {
+                        return null;
+                    });
+
+
+                const mensajeError =
+                    data && data.errors
+                        ? data.errors
+                            .map(function (err) {
+                                return err.message;
+                            })
+                            .join(", ")
+                        : "Ocurrió un error al enviar el mensaje. Intenta de nuevo.";
+
+
+                status.className = "form-status error show";
+
+                status.textContent = mensajeError;
             }
-        });
+
+        } catch (err) {
+
+            status.className = "form-status error show";
+
+            status.textContent =
+                "No se pudo conectar con el servidor. Verifica tu conexión e intenta de nuevo.";
+
+        } finally {
+
+            submitBtn.disabled = false;
+        }
     });
 
 });
