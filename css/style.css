@@ -571,3 +571,97 @@ footer{
     font-size:32px;
     margin-bottom:10px;
 }
+
+
+
+
+
+
+
+/* ===================== ACTUALIZACIONES ===================== */
+
+.update-card{
+    max-width:700px;
+    margin:auto;
+    text-align:center;
+    padding:45px 50px;
+    border-radius:20px;
+    background:white;
+    box-shadow:0 12px 35px rgba(0,0,0,.10);
+    border:1px solid #E5E7EB;
+}
+
+.update-badge{
+    display:inline-block;
+    padding:7px 14px;
+    margin-bottom:18px;
+    border-radius:20px;
+    background:#ECFDF5;
+    color:#047857;
+    font-size:13px;
+    font-weight:600;
+}
+
+.update-card h3{
+    color:#0B2341;
+    font-size:32px;
+    margin-bottom:18px;
+}
+
+.update-card p{
+    max-width:600px;
+    margin:0 auto;
+    color:#6B7280;
+    font-size:16px;
+    line-height:1.8;
+}
+
+.update-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.update-buttons .btn-primary,
+.update-buttons .btn-secondary{
+    display:inline-block;
+    margin:0;
+    transition:.2s;
+}
+
+.update-buttons .btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px rgba(212,175,55,.25);
+}
+
+.update-secondary{
+    border:2px solid #0B2341;
+    color:#0B2341;
+    background:white;
+}
+
+.update-secondary:hover{
+    background:#0B2341;
+    color:white;
+}
+
+
+.update-card{
+    padding:35px 25px;
+}
+
+.update-card h3{
+    font-size:28px;
+}
+
+.update-buttons{
+    flex-direction:column;
+}
+
+.update-buttons a{
+    width:100%;
+    text-align:center;
+}
